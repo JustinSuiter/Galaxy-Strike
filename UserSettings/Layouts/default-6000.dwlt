@@ -951,9 +951,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -52.080753, y: 505.4797, z: -44.17345}
+    m_Target: {x: -289.9767, y: 419.75226, z: 209.26025}
     speed: 2
-    m_Value: {x: -52.080753, y: 505.4797, z: -44.17345}
+    m_Value: {x: -289.9767, y: 419.75226, z: 209.26025}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -999,13 +999,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.46738002, y: -0.28007767, z: 0.15900837, w: -0.82333565}
+    m_Target: {x: -0.51954067, y: -0.005885192, z: 0.0036091942, w: -0.8544519}
     speed: 2
-    m_Value: {x: -0.46760565, y: -0.27883497, z: 0.15830293, w: -0.82373303}
+    m_Value: {x: -0.5182433, y: -0.0058904286, z: 0.0036002565, w: -0.8552054}
   m_Size:
-    m_Target: 195.4843
+    m_Target: 761.783
     speed: 2
-    m_Value: 195.4843
+    m_Value: 728.97894
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1270,8 +1270,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3caf0000
-    m_LastClickedID: 44860
+    m_SelectedIDs: 3eaf0000
+    m_LastClickedID: 44862
     m_ExpandedIDs: 0000000006ae000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
