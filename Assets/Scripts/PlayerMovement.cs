@@ -1,31 +1,51 @@
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements.Experimental;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float controlSpeed = 10f;
+    [SerializeField] float xClampRange = 5f;
+    [SerializeField] float yClampRange = 5f;
 
-    Vector2 mvoement;
+    [SerializeField] float controlRollFactor = 20f;
+    [SerializeField] float rotationSpeed = 10f;
+    [SerializeField] float controlPitchFactor = 10f;
+
+    Vector2 movement;
     void Update()
     {
         ProcessTranslation();
+        ProcessRotation();
     }
 
 
     public void OnMove(InputValue value)
     {
-        mvoement = value.Get<Vector2>();
+        movement = value.Get<Vector2>();
     }
     
-    private void ProcessTranslation()
+    void ProcessTranslation()
     {
-        float yOffset = mvoement.y * controlSpeed * Time.deltaTime;
+        float yOffset = movement.y * controlSpeed * Time.deltaTime;
+        float rawYPos = transform.localPosition.y + yOffset;
+        float clampedYPos = Mathf.Clamp(rawYPos, -yClampRange, yClampRange);
 
-        float xOffset = mvoement.x * controlSpeed * Time.deltaTime;
+        float xOffset = movement.x * controlSpeed * Time.deltaTime;
+        float rawXPos = transform.localPosition.x + xOffset;
+        float clampedXPos = Mathf.Clamp(rawXPos, -xClampRange, xClampRange);
 
-        transform.localPosition = new Vector3(transform.localPosition.x + xOffset, transform.localPosition.y + yOffset, 0f);
+        transform.localPosition = new Vector3(clampedXPos, clampedYPos, 0f);
     }
+    
+    void ProcessRotation()
+    {
+        float pitch = controlPitchFactor * movement.y;
+        float roll = -controlRollFactor * movement.x;
 
+        Quaternion targetRoatation = Quaternion.Euler(pitch, 0f, roll);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRoatation, rotationSpeed * Time.deltaTime);
+    }
 }
